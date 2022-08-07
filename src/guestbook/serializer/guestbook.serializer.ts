@@ -8,12 +8,26 @@ export class CreateGuestbookSerializer {
 }
 
 export class GetGuestbookSerializer {
-  data: Array<GuestbookSerializer>;
+  data: Array<GuestbookGetSerializer>;
   meta: any;
   statusCode: number;
 }
 
 export class GuestbookSerializer {
+  id: string;
+  name: string;
+  phone: string;
+  address: string;
+  note: string | null;
+  created_at: Date;
+  updated_at: Date;
+
+  constructor(partial: Partial<GuestEntity>) {
+    Object.assign(this, partial);
+  }
+}
+
+export class GuestbookGetSerializer {
   id: string;
   name: string;
   phone: string;
