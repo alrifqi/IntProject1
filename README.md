@@ -1,30 +1,9 @@
 
-# Project Test
-
-
-this repo contain answer/solution for question1 & question2
-
-
-##  Question1
-
-answer for question 1 can be found at:
-./src/question1/command/question1.command.ts method answerQuestion1
-
-you can run the solution with command:
-```
-npm run console:dev question1 -- -n 5
-```
-parameter -n is dynamic so you can parse any number
-
-> make sure you run all requirement with command:
-```
-npm install
-```
 ## Question 2
 
 ## architecture
 for architecture i use clean architecture and i use 3 layer:
-1. Controller Layer -> this layer for handle route
+1. Controller Layer -> this layer for handle route. so this layer will validate all incoming data, authentication checking, return response, etc. 
 2. Usecase layer -> this layer for handle logic
 3. Repository layer -> this layer for handle communication with datasource/external source
 
@@ -54,25 +33,41 @@ To run the application can use command:
 - Development
     ```npm run start:dev```
 - Production
-    - for production with need to build the app first using command
+    - for production we need to build the app first using command
         ```npm run build```
     - and for running the app using generated code for previous step, using command
         ```npm run start```
+
+## create admin user
+To create admin user, using command:
+```
+npm run console:dev useradmin -- -e <email> -p <password>
+```
+example
+```
+npm run console:dev useradmin -- -e test@test.com -p 123
+```
 
 ## Assumption
 1. all guest can fill in guest book without authentication
 2. all field for guest book all mandatory (name, phone, address, note)
 3. all guest can see all data of guest book (phone & address are hidden)
 4. phone number can be duplicate, so guest can input multiple times with same phone
+5. for admin role, user need to authenticate first
+6. authentication using header Authorization with value ```bearer <token>```
+7. admin can get all guestbook and delete guestbook by id only.
 
 
 ## Unit Test Plan
-for unit test plan i plan to add unit test to service & controller
+for unit test plan i plan to add unit test to service/usecase & controller
 1. unit test for controller
     > to test validation with positive & negative data and check if controller give expected response based on scenario
     > to follow best practice of unit test, unit test for controller will use mock for called service inside controller so controller unit test not dependent to external resource/dependencies
 
 
-2. unit test for service
+2. unit test for service/usecase
     > to test logic and flow and give expected result
     > to follow best practice, unit test for service will use mock for external resource/dependencies and repository/source data. like service in Admin module, which call service guestbook, in admin unit test it will be mocked
+    > unit test will test all function inside service/usecase
+
+reason why i don't add unit for repository because repository only from database, if there's repository from external resource then i can add unit test for it & integration test too
