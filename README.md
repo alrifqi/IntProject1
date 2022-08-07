@@ -7,7 +7,7 @@ for architecture i use clean architecture and i use 3 layer:
 2. Usecase layer -> this layer for handle logic
 3. Repository layer -> this layer for handle communication with datasource/external source
 
-framework using **nestjs** with **typescript**. 
+framework using **nestjs** with **typescript**. database can be anything, but in this project i use mysql
 
 ## Preparation
 install all requirement with command:
