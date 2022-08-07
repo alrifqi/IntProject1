@@ -1,3 +1,25 @@
+# Project Test
+
+
+this repo contain answer/solution for question1 & question2
+
+
+##  Question1
+
+answer for question 1 can be found at:
+./src/question1/command/question1.command.ts method answerQuestion1
+
+you can run the solution with command:
+```
+npm run console:dev question1 -- -n 5
+```
+parameter -n is dynamic so you can parse any number
+
+> make sure you run all requirement with command:
+```
+npm install
+```
+
 
 ## Question 2
 
