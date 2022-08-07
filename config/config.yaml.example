@@ -1,0 +1,13 @@
+environment: "staging"
+app_key: "xxxx"
+salt_or_rounds: 10
+secret_key: "secretKey"
+database:
+  main:
+    database: "projectapp"
+    password: "root"
+    username: "root"
+    port: 3306
+    address: "127.0.0.1"
+    type: "mysql"
+    name: "main-mysql"
