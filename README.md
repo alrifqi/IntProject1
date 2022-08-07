@@ -48,6 +48,14 @@ example
 npm run console:dev useradmin -- -e test@test.com -p 123
 ```
 
+
+## Api documentation
+api documentation can be found at (after running the app):
+```
+http://localhost:3000/docs
+```
+
+
 ## Assumption
 1. all guest can fill in guest book without authentication
 2. all field for guest book all mandatory (name, phone, address, note)
